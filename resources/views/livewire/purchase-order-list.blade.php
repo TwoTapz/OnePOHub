@@ -15,7 +15,7 @@
 
     {{-- Filters --}}
     <div class="bg-white border border-gray-100 rounded-lg p-4 mb-5">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
             <div>
                 <label class="block text-xs font-medium text-gray-500 mb-1.5">Search</label>
                 <input wire:model.live="search" type="text" placeholder="PO no. or client"
@@ -51,6 +51,15 @@
                     <option value="Private">Private</option>
                 </select>
             </div>
+            <div>
+                <label class="block text-xs font-medium text-gray-500 mb-1.5">Legacy/Ventures</label>
+                <select wire:model.live="filterBusinessUnit"
+                        class="w-full rounded border-gray-200 text-sm focus:ring-[#1C3F6E] focus:border-[#1C3F6E]">
+                    <option value="">All</option>
+                    <option value="Legacy">Legacy</option>
+                    <option value="Ventures">Ventures</option>
+                </select>
+            </div>
         </div>
     </div>
 
@@ -67,6 +76,7 @@
                         <th class="px-4 py-3 text-right text-xs font-medium text-gray-400">Total</th>
                         <th class="px-4 py-3 text-left text-xs font-medium text-gray-400">Status</th>
                         <th class="px-4 py-3 text-left text-xs font-medium text-gray-400">Type</th>
+                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-400">Legacy/Ventures</th>
                         <th class="px-4 py-3 text-right text-xs font-medium text-gray-400">Actions</th>
                     </tr>
                 </thead>
@@ -86,6 +96,9 @@
                             </td>
                             <td class="px-4 py-3">
                                 <x-company-type-tag :type="$po['client_type']"/>
+                            </td>
+                            <td class="px-4 py-3">
+                                <x-business-unit-tag :unit="$po['business_unit'] ?? 'Legacy'"/>
                             </td>
                             <td class="px-4 py-3">
                                 <div class="flex items-center justify-end gap-3">
@@ -117,7 +130,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="8" class="px-4 py-16 text-center">
+                            <td colspan="9" class="px-4 py-16 text-center">
                                 <p class="text-sm text-gray-400">No purchase orders match your filters.</p>
                                 <a href="{{ route('purchase-orders.create') }}" class="mt-2 inline-block text-sm font-medium text-[#1C3F6E] hover:text-navy">Add your first PO</a>
                             </td>

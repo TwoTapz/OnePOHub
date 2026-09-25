@@ -72,6 +72,13 @@
                     </select>
                 </div>
                 <div>
+                    <label class="block text-xs font-medium text-gray-500 mb-1.5">Legacy/Ventures</label>
+                    <select wire:model="business_unit" class="w-full rounded border-gray-200 text-sm focus:ring-[#1C3F6E] focus:border-[#1C3F6E]">
+                        <option value="Legacy">Legacy</option>
+                        <option value="Ventures">Ventures</option>
+                    </select>
+                </div>
+                <div>
                     <label class="block text-xs font-medium text-gray-500 mb-1.5">Category</label>
                     <input wire:model="category" type="text" class="w-full rounded border-gray-200 text-sm focus:ring-[#1C3F6E] focus:border-[#1C3F6E]" placeholder="e.g. Trophies & Awards">
                 </div>

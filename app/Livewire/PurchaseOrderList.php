@@ -12,6 +12,7 @@ class PurchaseOrderList extends Component
     public string $filterCategory = '';
     public string $filterStatus = '';
     public string $filterType = '';
+    public string $filterBusinessUnit = '';
 
     public function deleteOrder(string $id): void
     {
@@ -33,6 +34,9 @@ class PurchaseOrderList extends Component
                     return false;
                 }
                 if ($this->filterType && ($po['client_type'] ?? '') !== $this->filterType) {
+                    return false;
+                }
+                if ($this->filterBusinessUnit && ($po['business_unit'] ?? '') !== $this->filterBusinessUnit) {
                     return false;
                 }
                 if ($this->filterStatus) {

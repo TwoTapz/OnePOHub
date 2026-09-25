@@ -20,6 +20,7 @@ class PurchaseOrderForm extends Component
     public string $sla_date = '';
     public string $client_name = '';
     public string $client_type = 'Private';
+    public string $business_unit = 'Legacy';
     public string $category = '';
     public string $contact = '';
     public string $your_ref = '';
@@ -68,6 +69,7 @@ class PurchaseOrderForm extends Component
                 'sla_date'        => $po['sla_date'],
                 'client_name'     => $po['client_name'],
                 'client_type'     => $po['client_type'],
+                'business_unit'   => $po['business_unit'] ?? 'Legacy',
                 'category'        => $po['category'],
                 'contact'         => $po['contact'] ?? '',
                 'your_ref'        => $po['your_ref'] ?? '',
@@ -218,6 +220,7 @@ class PurchaseOrderForm extends Component
             'sla_date'        => $this->sla_date,
             'client_name'     => $this->client_name,
             'client_type'     => $this->client_type,
+            'business_unit'   => $this->business_unit,
             'category'        => $this->category,
             'contact'         => $this->contact ?: null,
             'your_ref'        => $this->your_ref ?: null,

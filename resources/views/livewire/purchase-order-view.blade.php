@@ -8,6 +8,7 @@
         <h1 class="text-xl font-semibold text-navy font-mono">{{ $po['po_number'] }}</h1>
         <x-badge :status="$status['label']" :color="$status['color']"/>
         <x-company-type-tag :type="$po['client_type']"/>
+        <x-business-unit-tag :unit="$po['business_unit'] ?? 'Legacy'"/>
         @if($po['source'] === 'pdf')
             <span class="inline-flex items-center rounded px-2 py-0.5 text-xs text-gray-400 bg-gray-50 ring-1 ring-gray-100">PDF import</span>
         @endif
